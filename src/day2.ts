@@ -26,3 +26,21 @@ console.log(
         .filter(onPartOneMatch)
         .length
 );
+
+const onPartTwoMatch = ([pattern, value]: [string, string]): Boolean => {
+    const matches = pattern.match(/(\d+)-(\d+) (\w)/) ?? [];
+    const letter = matches[3];
+    const firstPosition = +matches[1] - 1;
+    const secondPosition = +matches[2] - 1;
+
+    return (value.charAt(firstPosition) === letter && value.charAt(secondPosition) !== letter)
+        || (value.charAt(secondPosition) === letter && value.charAt(firstPosition) !== letter);
+}
+
+console.log(
+    'Part two: ',
+    inputDayTwo
+        .map(toPatternAndInput)
+        .filter(onPartTwoMatch)
+        .length
+);
