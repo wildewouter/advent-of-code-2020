@@ -4,7 +4,7 @@ const toPatternAndInput = (item: string): [string, string] => item.match(/^(\d+-
 
 const intoCharacters = '';
 
-const onGivenPatternMatch = ([pattern, value]: [string, string]): Boolean => {
+const onPartOneMatch = ([pattern, value]: [string, string]): Boolean => {
     const matches = pattern.match(/(\d+)-(\d+) (\w)/) ?? [];
     const letter = matches[3];
     const offset = matches[1];
@@ -20,8 +20,9 @@ const onGivenPatternMatch = ([pattern, value]: [string, string]): Boolean => {
 }
 
 console.log(
+    'Part one: ',
     inputDayTwo
         .map(toPatternAndInput)
-        .filter(onGivenPatternMatch)
+        .filter(onPartOneMatch)
         .length
 );
