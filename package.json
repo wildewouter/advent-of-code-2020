@@ -4,7 +4,8 @@
   "description": "Advent of Code",
   "scripts": {
     "day-1": "ts-node src/day1.ts",
-    "day-2": "ts-node src/day2.ts"
+    "day-2": "ts-node src/day2.ts",
+    "day-3": "ts-node src/day3.ts"
   },
   "repository": {
     "type": "git",
