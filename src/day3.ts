@@ -18,23 +18,31 @@ const position: Position = {
     y: 0,
 }
 
-const sledDownSlope = (slope: Slope, position: Position, treeEncounters = 0): number => {
+const sledDownSlope = (slope: Slope, position: Position, addX: number, addY: number, treeEncounters = 0): number => {
     if (position.y === slope.length) {
         return treeEncounters;
     }
 
     const newPosition = {
-        x: position.x + 3,
-        y: position.y + 1,
+        x: position.x + addX,
+        y: position.y + addY,
     }
 
     const x = position.x % slope[position.y].length;
 
     if (slope[position.y][x] === '#') {
-        return sledDownSlope(slope, newPosition, treeEncounters + 1)
+        return sledDownSlope(slope, newPosition, addX, addY, treeEncounters + 1)
     }
 
-    return sledDownSlope(slope, newPosition, treeEncounters);
+    return sledDownSlope(slope, newPosition, addX, addY, treeEncounters);
 }
 
-console.log(sledDownSlope(slope, position));
+console.log('part one: ', sledDownSlope(slope, position, 3, 1))
+
+console.log('part two: ',
+    sledDownSlope(slope, position, 1, 1)
+    * sledDownSlope(slope, position, 3, 1)
+    * sledDownSlope(slope, position, 5, 1)
+    * sledDownSlope(slope, position, 7, 1)
+    * sledDownSlope(slope, position, 1, 2)
+);
