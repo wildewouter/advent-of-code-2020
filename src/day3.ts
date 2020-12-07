@@ -6,7 +6,7 @@ type Slope = Point[][];
 
 type Position = {
     x: number,
-    y: number
+    y: number,
 };
 
 const slope = fs.readFileSync(__dirname + '/day3-input', 'utf8')

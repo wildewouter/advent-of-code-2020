@@ -1,6 +1,10 @@
 import {inputDayTwo} from "./day2-input";
 
-const toPatternAndInput = (item: string): [string, string] => item.match(/^(\d+-\d+ \w): (\w+)$/)?.filter((_, index) => index > 0 && index < 3) as [string, string];
+const toPatternAndInput = (item: string): [string, string] =>
+    item
+        .match(/^(\d+-\d+ \w): (\w+)$/)
+        ?.filter((_, index) =>
+            index > 0 && index < 3) as [string, string];
 
 const intoCharacters = '';
 
